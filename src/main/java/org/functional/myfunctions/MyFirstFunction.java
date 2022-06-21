@@ -8,5 +8,5 @@ package org.functional.myfunctions;
 @FunctionalInterface
 public interface MyFirstFunction<T, R> {
 
-    R apply(T t); // Example of implementing method: int apply(int t);
+    R apply(T t);
 }
