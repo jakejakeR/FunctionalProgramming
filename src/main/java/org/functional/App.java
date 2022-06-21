@@ -13,19 +13,16 @@ public class App {
         Logger logger = LoggerFactory.getLogger("App");
         logger.info("Hello World Functional Programming!");
 
-        MyFirstFunction<String, Integer> myFirstFunction = new MyFirstFunction<String, Integer>() {
-            @Override
-            public Integer apply(String s) {
-                return s.length();
-            }
-        };
-
-        Integer x = myFirstFunction.apply("Maybe use lambda instead?");
+        MyFirstFunction<String, Integer> myFunction1 = s -> s.length();
+        Integer x = myFunction1.apply("Lambda used.");
         logger.info(x.toString());
 
-        MyFirstFunction<String, Integer> mySecondFunction = s -> s.length();
-        Integer y = mySecondFunction.apply("Lambda used.");
-        logger.info(y.toString());
+        MyFirstFunction<String, String> myFunction2 = s -> s.concat(" No it's not haha!");
+        String y = myFunction2.apply("Programming is easy!");
+        logger.info(y);
 
+        MyFirstFunction<Double, Boolean> myFunction3 = aDouble -> aDouble / 4 > 1;
+        Boolean z = myFunction3.apply(4.1);
+        logger.info(z.toString());
     }
 }
