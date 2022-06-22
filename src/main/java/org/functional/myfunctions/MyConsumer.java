@@ -1,6 +1,7 @@
 package org.functional.myfunctions;
 
 /**
+ * Equivalent of Consumer.
  * Consumer/Sink
  * @param <T>
  */

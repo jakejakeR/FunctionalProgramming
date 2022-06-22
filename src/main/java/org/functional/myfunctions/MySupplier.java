@@ -1,10 +1,10 @@
 package org.functional.myfunctions;
 
 /**
- * Supplier/Producer
+ * Equivalent of Supplier
  */
 @FunctionalInterface
 public interface MySupplier<T> {
 
-    T apply();
+    T get();
 }

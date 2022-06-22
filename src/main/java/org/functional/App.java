@@ -1,8 +1,9 @@
 package org.functional;
 
-import org.functional.myfunctions.MyFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Optional;
 
 /**
  * Hello world!
@@ -12,10 +13,12 @@ public class App {
 
         Logger logger = LoggerFactory.getLogger("App");
 
-        MyFilter<String> stringFilter = s -> s.length() % 2 == 0;
-        Boolean isEven = stringFilter.test("Cats");
+        String x = "Hello";
+        Optional<String> maybeX = Optional.ofNullable(x);
+        logger.info(maybeX.toString());
 
-        logger.info(isEven.toString());
+        Optional<Integer> maybeInt = maybeX.map(s -> s.length());
+        logger.info(maybeInt.toString());
 
     }
 }

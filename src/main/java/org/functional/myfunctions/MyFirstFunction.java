@@ -1,6 +1,7 @@
 package org.functional.myfunctions;
 
 /**
+ * Equivalent of Function.
  * Functional interface.
  * @param <T> input type.
  * @param <R> output type.
