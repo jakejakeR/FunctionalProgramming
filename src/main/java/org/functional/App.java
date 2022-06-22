@@ -3,7 +3,9 @@ package org.functional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Hello world!
@@ -13,15 +15,20 @@ public class App {
 
         Logger logger = LoggerFactory.getLogger("App");
 
-        String x = "Hello";
-        Optional<String> maybeX = Optional.ofNullable(x);
-        logger.info(maybeX.toString());
+        List<String> strings = new ArrayList<>();
+        strings.add("a");
+        strings.add("br");
+        strings.add("cqwe");
+        strings.add("dasdfghj");
 
-        Optional<Integer> maybeInt = maybeX.map(s -> s.length()).filter(s -> s % 2 == 0);
-        logger.info(maybeInt.toString());
+        List<Integer> integers = strings.stream().map(s -> s.length()).collect(Collectors.toList());
+        logger.info(integers.toString());
 
-        Integer myValue = maybeInt.orElse(0);
-        logger.info(myValue.toString());
-
+        // using for...
+        List<Integer> ints = new ArrayList<>();
+        for (String string : strings) {
+            ints.add(string.length());
+        }
+        logger.info(ints.toString());
     }
 }
