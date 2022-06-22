@@ -1,5 +1,6 @@
 package org.functional;
 
+import org.functional.model.Address;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,17 +16,33 @@ public class App {
 
         Logger logger = LoggerFactory.getLogger("App");
 
-        List<String> strings = new ArrayList<>();
-        strings.add("a");
-        strings.add("br");
-        strings.add("cqwe");
-        strings.add("dasdfghj");
-        strings.add("dasdfga");
+        List<Address> addressList = new ArrayList<>();
+        addressList.add(new Address("Pomorskie", "Gdansk", "Dluga", 1000000));
+        addressList.add(new Address("Malopolskie", "Krakow", "Szeroka", 2000000));
+        addressList.add(new Address("Mazowieckie", "Warszawa", "Jerozolimskie", 5000000));
+        addressList.add(new Address("Pomorskie", "Pruszcz", "Chopina", 500000));
+        addressList.add(new Address("Pomorskie", "Gdynia", "Swietojanska", 900000));
+        addressList.add(new Address("Malopolskie", "Zakopane", "Krupowki", 300000));
 
-        List<Integer> integers = strings.stream().map(s -> s.length()).collect(Collectors.toList());
-        logger.info(integers.toString());
+        // Only addresses which states are Pomorskie
+        List<Address> pomorskie = addressList.stream()
+                .filter(address -> address.getState().equals("Pomorskie"))
+                .collect(Collectors.toList());
 
-        List<Integer> evenInts = strings.stream().map(s -> s.length()).filter(s -> s % 2 == 0).collect(Collectors.toList());
-        logger.info("Even list: " + evenInts.toString());
+        logger.info(pomorskie.toString());
+
+        // Only addresses which cities begin with "Z"
+        List<Address> zCities = addressList.stream()
+                .filter(address -> address.getCity().startsWith("Z"))
+                .collect(Collectors.toList());
+
+        logger.info(zCities.toString());
+
+        // Only cities
+        List<String> collectCities = addressList.stream()
+                .map(address -> address.getCity())
+                .collect(Collectors.toList());
+
+        logger.info(collectCities.toString());
     }
 }
