@@ -1,7 +1,7 @@
 package org.functional.myfunctions;
 
 /**
- * Consumer/sink functional interface
+ * Consumer/Sink
  * @param <T>
  */
 @FunctionalInterface
