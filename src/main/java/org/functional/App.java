@@ -20,15 +20,12 @@ public class App {
         strings.add("br");
         strings.add("cqwe");
         strings.add("dasdfghj");
+        strings.add("dasdfga");
 
         List<Integer> integers = strings.stream().map(s -> s.length()).collect(Collectors.toList());
         logger.info(integers.toString());
 
-        // using for...
-        List<Integer> ints = new ArrayList<>();
-        for (String string : strings) {
-            ints.add(string.length());
-        }
-        logger.info(ints.toString());
+        List<Integer> evenInts = strings.stream().map(s -> s.length()).filter(s -> s % 2 == 0).collect(Collectors.toList());
+        logger.info("Even list: " + evenInts.toString());
     }
 }
