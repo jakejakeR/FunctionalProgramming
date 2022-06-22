@@ -1,6 +1,6 @@
 package org.functional;
 
-import org.functional.myfunctions.MyTwoParamFunction;
+import org.functional.myfunctions.MyConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,8 +13,8 @@ public class App {
         Logger logger = LoggerFactory.getLogger("App");
         logger.info("Hello World Functional Programming!");
 
-        MyTwoParamFunction<Integer, Integer, Integer> myFunction4 = (a, b) -> a + b;
-        Integer x = myFunction4.apply(5,6);
-        logger.info(x.toString());
+        MyConsumer<String> myConsumerEcho = a -> logger.info(a);
+        myConsumerEcho.apply("I am a consumer!");
+
     }
 }
