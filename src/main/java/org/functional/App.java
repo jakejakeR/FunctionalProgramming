@@ -1,10 +1,8 @@
 package org.functional;
 
-import org.functional.myfunctions.MySupplier;
+import org.functional.containers.Container;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.time.LocalDateTime;
 
 /**
  * Hello world!
@@ -13,10 +11,18 @@ public class App {
     public static void main(String[] args) {
 
         Logger logger = LoggerFactory.getLogger("App");
-        logger.info("Hello World Functional Programming!");
 
-        MySupplier<String> mySupplier = () -> LocalDateTime.now().toString();
-        logger.info(mySupplier.apply());
+        Container<String> stringContainer = new Container<>("Hello!");
+
+        Container<Integer> integerContainer = stringContainer.map(s -> s.length());
+
+        logger.info(stringContainer.getValue() + " has " + integerContainer.getValue() + " chars.");
+
+        Container<Integer> anotherIntegerContainer = integerContainer.map(s -> s + s);
+        logger.info(anotherIntegerContainer.getValue().toString());
+
+        Container<Boolean> booleanContainer = integerContainer.map(s -> s % 2 == 0);
+        logger.info(booleanContainer.getValue().toString());
 
     }
 }
