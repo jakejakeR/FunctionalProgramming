@@ -1,6 +1,6 @@
 package org.functional;
 
-import org.functional.containers.Container;
+import org.functional.myfunctions.MyFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,17 +12,10 @@ public class App {
 
         Logger logger = LoggerFactory.getLogger("App");
 
-        Container<String> stringContainer = new Container<>("Hello!");
+        MyFilter<String> stringFilter = s -> s.length() % 2 == 0;
+        Boolean isEven = stringFilter.test("Cats");
 
-        Container<Integer> integerContainer = stringContainer.map(s -> s.length());
-
-        logger.info(stringContainer.getValue() + " has " + integerContainer.getValue() + " chars.");
-
-        Container<Integer> anotherIntegerContainer = integerContainer.map(s -> s + s);
-        logger.info(anotherIntegerContainer.getValue().toString());
-
-        Container<Boolean> booleanContainer = integerContainer.map(s -> s % 2 == 0);
-        logger.info(booleanContainer.getValue().toString());
+        logger.info(isEven.toString());
 
     }
 }
