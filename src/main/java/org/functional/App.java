@@ -17,8 +17,11 @@ public class App {
         Optional<String> maybeX = Optional.ofNullable(x);
         logger.info(maybeX.toString());
 
-        Optional<Integer> maybeInt = maybeX.map(s -> s.length());
+        Optional<Integer> maybeInt = maybeX.map(s -> s.length()).filter(s -> s % 2 == 0);
         logger.info(maybeInt.toString());
+
+        Integer myValue = maybeInt.orElse(0);
+        logger.info(myValue.toString());
 
     }
 }
