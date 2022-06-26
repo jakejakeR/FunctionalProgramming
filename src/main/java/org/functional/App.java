@@ -2,13 +2,16 @@ package org.functional;
 
 import org.functional.interfaces.MyParamValue;
 import org.functional.interfaces.MyValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World Functional Programming!\r\n");
+        Logger logger = LoggerFactory.getLogger("App");
+        logger.info("Hello");
 
         // lambda expression assigned to the simple functional interface reference
         MyValue myValue;
