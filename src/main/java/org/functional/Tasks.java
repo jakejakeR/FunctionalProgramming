@@ -15,7 +15,7 @@ public class Tasks {
                 .filter(s -> s % 6 == 0)
                 .sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 
-        Optional<Integer> optionalSum = numbersDivisibleBySix.stream().reduce((accumulator, number) -> accumulator + number);
+        Optional<Integer> optionalSum = numbersDivisibleBySix.stream().reduce(Integer::sum);
         Integer sumOfIntegers = optionalSum.orElse(0);
         System.out.println("Sum of " + numbersDivisibleBySix);
         System.out.println("is: " + sumOfIntegers);
