@@ -11,8 +11,7 @@ public class Tasks {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
-        List<Integer> millionIntegers = IntStream.range(0, 1000000).boxed().collect(Collectors.toList());
-        System.out.println(millionIntegers.size());
-
+        List<Integer> numbersDivisibleBySix = IntStream.range(0, 101).boxed().filter(s -> s % 6 == 0).collect(Collectors.toList());
+        System.out.println(numbersDivisibleBySix);
     }
 }
