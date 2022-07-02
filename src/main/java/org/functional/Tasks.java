@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Tasks {
     public static void main(String[] args) {
@@ -23,8 +22,6 @@ public class Tasks {
         addressList.add(new Address("Malopolskie", "Zakopane", "Krupowki", 30));
         addressList.add(new Address("Lodzkie", "Lodz", "Piotrkowska", 100));
 
-        Optional<Address> pomorskie = addressList.stream()
-                .filter(address -> address.getState().equals("Pomorskie")).findFirst();
-        logger.info(pomorskie.toString());
+        addressList.stream().forEach(address -> logger.info(address.getState()));
     }
 }
