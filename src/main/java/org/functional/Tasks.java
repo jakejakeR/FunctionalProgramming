@@ -1,22 +1,28 @@
 package org.functional;
 
+import org.functional.model.Address;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tasks {
     public static void main(String[] args) {
         Logger logger = LoggerFactory.getLogger("App");
 
-        String x = "Hello!";
-        Optional<String> maybeX = Optional.ofNullable(x);
-        logger.info(maybeX.toString());
+        List<Address> addressList = new ArrayList<>();
+        addressList.add(new Address("Pomorskie", "Gdansk", "Dluga", 200));
+        addressList.add(new Address("Pomorskie", "Gdansk", "Hallera", 1005));
+        addressList.add(new Address("Pomorskie", "Gdansk", "Partyzantow", 1000));
+        addressList.add(new Address("Malopolskie", "Krakow", "Szeroka", 2000));
+        addressList.add(new Address("Mazowieckie", "Warszawa", "Jerozolimskie", 500));
+        addressList.add(new Address("Pomorskie", "Pruszcz", "Chopina", 50));
+        addressList.add(new Address("Pomorskie", "Gdynia", "Swietojanska", 90));
+        addressList.add(new Address("Malopolskie", "Zakopane", "Krupowki", 30));
+        addressList.add(new Address("Lodzkie", "Lodz", "Piotrkowska", 100));
 
-        Optional<Integer> maybeInt = maybeX.map(s -> s.length()).filter(s -> s % 2 == 0);
-        logger.info(maybeInt.toString());
-
-        Integer myValue = maybeInt.orElse(0);
-        logger.info(myValue.toString());
+        long gdansk = addressList.stream().filter(address -> address.getCity().equals("Gdansk")).count();
+        logger.info(String.valueOf(gdansk));
     }
 }
