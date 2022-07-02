@@ -17,12 +17,15 @@ public class App {
         Logger logger = LoggerFactory.getLogger("App");
 
         List<Address> addressList = new ArrayList<>();
-        addressList.add(new Address("Pomorskie", "Gdansk", "Dluga", 1000000));
-        addressList.add(new Address("Malopolskie", "Krakow", "Szeroka", 2000000));
-        addressList.add(new Address("Mazowieckie", "Warszawa", "Jerozolimskie", 5000000));
-        addressList.add(new Address("Pomorskie", "Pruszcz", "Chopina", 500000));
-        addressList.add(new Address("Pomorskie", "Gdynia", "Swietojanska", 900000));
-        addressList.add(new Address("Malopolskie", "Zakopane", "Krupowki", 300000));
+        addressList.add(new Address("Pomorskie", "Gdansk", "Dluga", 200));
+        addressList.add(new Address("Pomorskie", "Gdansk", "Hallera", 1005));
+        addressList.add(new Address("Pomorskie", "Gdansk", "Partyzantow", 1000));
+        addressList.add(new Address("Malopolskie", "Krakow", "Szeroka", 2000));
+        addressList.add(new Address("Mazowieckie", "Warszawa", "Jerozolimskie", 500));
+        addressList.add(new Address("Pomorskie", "Pruszcz", "Chopina", 50));
+        addressList.add(new Address("Pomorskie", "Gdynia", "Swietojanska", 90));
+        addressList.add(new Address("Malopolskie", "Zakopane", "Krupowki", 30));
+        addressList.add(new Address("Lodzkie", "Lodz", "Piotrkowska", 100));
 
         // Only addresses which states are Pomorskie
         List<Address> pomorskie = addressList.stream()
